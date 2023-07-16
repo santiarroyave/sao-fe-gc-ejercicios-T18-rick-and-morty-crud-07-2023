@@ -1,0 +1,19 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <div class="row row-cols-4 justify-content-center" *ngIf="personajes!=null; else espera">
+        <div *ngFor="let personaje of personajes" class="card cartaPersonaje mt-4 mx-3">
+            <img src="{{personaje.image}}" alt="" class="card-img-top">
+
+            <div class="d-grid gap-2 contTitulo">
+                <h4 class="m-2">{{personaje.name}}</h4>
+                <button class="btn btn-warning" (click)="seleccionar(personaje.id)">See more</button>
+            </div>
+            
+        </div>
+    </div>
+    <ng-template #espera>Esperando datos...</ng-template>
+    
+</div>
+
+<app-pers [personaje]="personaje"></app-pers>
