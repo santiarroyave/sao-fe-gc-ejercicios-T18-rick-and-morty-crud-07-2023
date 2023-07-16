@@ -9,6 +9,64 @@
 ### Models
 - `ng g class models/misPersonajes --type=model`
 
+En el archivo del servicio **mis-personajes.service.ts**
+- `import { MisPersonajes } from '../models/mis-personajes.model';`
+- Ej. de uso:
+```ts
+getPersonajes():Observable<MisPersonajes[]>{
+    return this.http.get<MisPersonajes[]>(baseUrl);
+};
+
+findByName(name:any):Observable<MisPersonajes[]>{
+return this.http.get<MisPersonajes[]>(`${baseUrl}?name=${name}`);
+};
+```
+
+### CRUD
+En el archivo del servicio **mis-personajes.service.ts** devolver:
+
+C - Create **POST**
+```ts
+create(data:any):Observable<any>{
+    return this.http.post(baseUrl,data);
+};
+```
+
+R - Read - **GET** (all/id)
+```ts
+getPersonajes():Observable<MisPersonajes[]>{
+    return this.http.get<MisPersonajes[]>(baseUrl);
+};
+```
+
+```ts
+getPersonajeId(id:number){
+    return this.http.get(baseUrl+id);
+};
+```
+
+U - Update - **PUT**
+```ts
+update(id:any, data:any):Observable<any>{
+    return this.http.put(`${baseUrl}/${id}`,data);
+};
+```
+
+D - Delete - **DELETE** (all/id)
+```ts
+    deleteAll():Observable<any>{
+        return this.http.delete(baseUrl);
+    };
+```
+
+```ts
+delete(id:any):Observable<any>{
+    return this.http.delete(`${baseUrl}/${id}`);
+};
+```
+
+
+
 ## Readme de Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
