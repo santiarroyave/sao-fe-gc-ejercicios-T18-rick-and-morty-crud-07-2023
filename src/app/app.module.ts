@@ -10,6 +10,7 @@ import { NavComponent } from './home/nav/nav.component';
 import { ListaPerComponent } from './home/lista-per/lista-per.component';
 import { PersComponent } from './home/lista-per/pers/pers.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './home/about/about.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     NavComponent,
     ListaPerComponent,
-    PersComponent
+    PersComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
