@@ -1,6 +1,30 @@
 <app-nav></app-nav>
 
+<!-- Mis personajes -->
+<div class="container mt-4">
+    <h2>Mis personajes</h2>
+
+    <!-- Nuevo personaje -->
+    <button type="button" class="btn btn-primary btn-lg mt-3" (click)="agregar()">Agregar personaje</button>
+
+    <div class="row row-cols-4 justify-content-center" *ngIf="misPersonajes!=null; else espera">
+        <div *ngFor="let personaje of misPersonajes" class="card cartaPersonaje mt-4 mx-3">
+            <img src="{{personaje.image}}" alt="" class="card-img-top">
+
+            <div class="d-grid gap-2 contTitulo">
+                <h4 class="m-2">{{personaje.name}}</h4>
+                <button class="btn btn-warning" (click)="seleccionar(personaje.id)">See more</button>
+                <button class="btn btn-info" (click)="editar(personaje.id)">Editar</button>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- Personajes random -->
 <div class="container">
+    <h2>Personajes random</h2>
     <div class="row row-cols-4 justify-content-center" *ngIf="personajes!=null; else espera">
         <div *ngFor="let personaje of personajes" class="card cartaPersonaje mt-4 mx-3">
             <img src="{{personaje.image}}" alt="" class="card-img-top">
@@ -12,8 +36,10 @@
             
         </div>
     </div>
-    <ng-template #espera>Esperando datos...</ng-template>
-    
 </div>
 
+<ng-template #espera>Esperando datos...</ng-template>
+    
+
 <app-pers [personaje]="personaje"></app-pers>
+<app-editar [personaje]="miPersonaje"></app-editar>
