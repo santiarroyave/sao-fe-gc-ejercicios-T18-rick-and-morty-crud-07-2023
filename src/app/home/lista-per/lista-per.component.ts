@@ -26,13 +26,13 @@ export class ListaPerComponent implements OnInit{
     this.personajesService.getPersonajes(this.maxPersonajes).subscribe( result => this.personajes = result);
     this.misPersonajesService.getPersonajes().subscribe (result => this.misPersonajes = result);
   };
-  
+
   seleccionar(id:number){
     this.personajesService.getPersonajeId(id).subscribe( result => this.personaje = result);
   };
 
   editar(id:number){
-    this.misPersonajesService.getPersonajeID(id).subscribe (result => this.miPersonaje = result);
+    this.misPersonajesService.getPersonajeId(id).subscribe (result => this.miPersonaje = result);
   };
 
   agregar(){

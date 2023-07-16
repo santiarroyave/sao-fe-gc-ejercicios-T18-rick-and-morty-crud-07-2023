@@ -13,7 +13,7 @@ export class MisPersonajesService {
     return this.http.get("http://localhost:3000/characters/");
   };
 
-  getPersonajeID(id:number){
+  getPersonajeId(id:number){
     return this.http.get(`http://localhost:3000/characters/${id}`);
   }
 }
