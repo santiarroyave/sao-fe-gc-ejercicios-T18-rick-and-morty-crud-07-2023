@@ -6,6 +6,9 @@
 3. Creamos DB **db.json** en el directorio raiz
 4. Iniciamos servidor DB `json-server --watch db.json`
 
+### Models
+- `ng g class models/misPersonajes --type=model`
+
 ## Readme de Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
