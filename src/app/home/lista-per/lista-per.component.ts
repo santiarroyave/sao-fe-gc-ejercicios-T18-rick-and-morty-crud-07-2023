@@ -17,6 +17,7 @@ export class ListaPerComponent implements OnInit{
   personaje:any = null;
   misPersonajes: any = null;
   miPersonaje:any = null;
+  ventanaCrear:any = false;
 
   // CONSTRUCTORES
   constructor(private personajesService: PersonajesService, private misPersonajesService: MisPersonajesService){ };
@@ -36,6 +37,6 @@ export class ListaPerComponent implements OnInit{
   };
 
   agregar(){
-    alert("agregando");
+    this.ventanaCrear = true;
   }
 }

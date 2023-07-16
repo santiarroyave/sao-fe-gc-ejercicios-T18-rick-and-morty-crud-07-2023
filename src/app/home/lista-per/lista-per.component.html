@@ -5,7 +5,7 @@
     <h2>Mis personajes</h2>
 
     <!-- Nuevo personaje -->
-    <button type="button" class="btn btn-primary btn-lg mt-3" (click)="agregar()">Agregar personaje</button>
+    <button type="button" class="btn btn-primary btn-lg mt-3" (click)="agregar()">Crear personaje</button>
 
     <div class="row row-cols-4 justify-content-center" *ngIf="misPersonajes!=null; else espera">
         <div *ngFor="let personaje of misPersonajes" class="card cartaPersonaje mt-4 mx-3">
@@ -13,7 +13,6 @@
 
             <div class="d-grid gap-2 contTitulo">
                 <h4 class="m-2">{{personaje.name}}</h4>
-                <!-- <button class="btn btn-warning" (click)="seleccionarMio(personaje.id)">See more</button> -->
                 <button class="btn btn-info" (click)="editar(personaje.id)">Ver / Editar</button>
 
             </div>
@@ -43,3 +42,4 @@
 
 <app-pers [personaje]="personaje"></app-pers>
 <app-editar [personaje]="miPersonaje"></app-editar>
+<app-crear [abierto]="ventanaCrear"></app-crear>

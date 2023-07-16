@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-crear',
@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class CrearComponent {
 
+  @Input() abierto:any;
+
+  id:number = 0;
+  name:string = "";
+  status:string ="";
+  species:string ="";
+  gender:string ="";
+  origin:string ="";
+  image:string ="";
+
+  cerrar(){
+    this.abierto = false;
+  };
+
+  crear(){
+    alert("Creando personaje");
+  }
 }
