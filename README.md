@@ -3,6 +3,8 @@
 ### JSON Server
 1. Instalamos [JSON Server](https://www.npmjs.com/package/json-server) de manera global `npm install -g json-server`
 2. Lo instalaremos en el proyecto `npm i json-server`
+3. Creamos DB **db.json** en el directorio raiz
+4. Iniciamos servidor DB `json-server --watch db.json`
 
 ## Readme de Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
