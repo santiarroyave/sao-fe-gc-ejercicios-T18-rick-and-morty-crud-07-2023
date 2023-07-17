@@ -6,6 +6,92 @@
 3. Creamos DB **db.json** en el directorio raiz
 4. Iniciamos servidor DB `json-server --watch db.json`
 
+### Models
+- `ng g class models/misPersonajes --type=model`
+- Importar `import { MisPersonajes } from 'src/app/models/mis-personajes.model';` en:
+    - El servicio donde se vaya a usar
+    - El componente donde se vaya a usar
+
+Ej. de uso en **mis-personajes.service.ts**:
+```ts
+getPersonajes():Observable<MisPersonajes[]>{
+    return this.http.get<MisPersonajes[]>(baseUrl);
+};
+
+findByName(name:any):Observable<MisPersonajes[]>{
+return this.http.get<MisPersonajes[]>(`${baseUrl}?name=${name}`);
+};
+```
+
+### CRUD
+En el archivo del servicio **mis-personajes.service.ts** devolver:
+
+C - Create **POST**
+```ts
+create(data:any):Observable<any>{
+    return this.http.post(baseUrl,data);
+};
+```
+
+R - Read - **GET** (all/id)
+```ts
+getPersonajes():Observable<MisPersonajes[]>{
+    return this.http.get<MisPersonajes[]>(baseUrl);
+};
+```
+
+```ts
+getPersonajeId(id:number){
+    return this.http.get(baseUrl+id);
+};
+```
+
+U - Update - **PUT**
+```ts
+update(id:any, data:any):Observable<any>{
+    return this.http.put(`${baseUrl}/${id}`,data);
+};
+```
+
+D - Delete - **DELETE** (all/id)
+```ts
+    deleteAll():Observable<any>{
+        return this.http.delete(baseUrl);
+    };
+```
+
+```ts
+delete(id:any):Observable<any>{
+    return this.http.delete(`${baseUrl}/${id}`);
+};
+```
+
+### Notas a tener en cuenta
+Para actualizar ngFor después de eliminar un elemento, se puede utilizar la función filter() para asignar el resultado al array original.
+`this.misPersonajes = this.misPersonajes?.filter(personaje => personaje.id !== id);`
+Otra manera de actualizar la lista es haciendo otra petición GET (se puede crear un método)
+`this.misPersonajesService.getPersonajes().subscribe(result => this.misPersonajes = result);`
+
+
+Para actualizar el array después de crear un nuevo elemento he creado un EventEmmiter en el componente hijo que avise de que está creado.
+Es importante que emita la informacion después de guardar el personaje, porque sino la lista se actualizaría antes de tiempo y no apareceria.
+```ts
+this.misPersonajesService.create(data)
+.subscribe(
+    response =>{
+    console.log(response);
+    console.log("Creado correctamente");
+    // Avisar al componente padre que ya se ha creado para que actualice la lista y cierre la ventana
+    this.persCreado.emit(true);
+    },
+    error => {
+    console.log(error);
+    }
+);
+```
+
+
+
 ## Readme de Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
