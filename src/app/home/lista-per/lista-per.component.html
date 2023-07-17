@@ -14,6 +14,7 @@
             <div class="d-grid gap-2 contTitulo">
                 <h4 class="m-2">{{personaje.name}}</h4>
                 <button class="btn btn-info" (click)="editar(personaje.id)">Ver / Editar</button>
+                <button class="btn btn-danger" (click)="eliminar(personaje.id)">Eliminar</button>
 
             </div>
             
@@ -42,4 +43,4 @@
 
 <app-pers [personaje]="personaje"></app-pers>
 <app-editar [personaje]="miPersonaje"></app-editar>
-<app-crear [abierto]="ventanaCrear"></app-crear>
+<app-crear [abierto]="ventanaCrear" (persCreado)="alCrear($event)"></app-crear>
