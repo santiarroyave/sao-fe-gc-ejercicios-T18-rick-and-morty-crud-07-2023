@@ -1,11 +1,15 @@
 <app-nav></app-nav>
 
-<!-- Mis personajes -->
+<!-- MIS PERSONAJES -->
 <div class="container mt-4">
     <h2>Mis personajes</h2>
 
-    <!-- Nuevo personaje -->
-    <button type="button" class="btn btn-primary btn-lg mt-3" (click)="agregar()">Crear personaje</button>
+    <!-- Boton crear personaje -->
+    <div class="row">
+        <div class="col col-12 d-grid d-md-block">
+            <button type="button" class="btn btn-primary btn-lg mt-3" (click)="agregar()">Crear personaje</button>
+        </div>
+    </div>
 
     <div class="row row-cols-4 justify-content-center" *ngIf="misPersonajes!=null; else espera">
         <div *ngFor="let personaje of misPersonajes" class="card cartaPersonaje mt-4 mx-3">
@@ -22,8 +26,8 @@
     </div>
 </div>
 
-<!-- Personajes random -->
-<div class="container">
+<!-- PERSONAJES RANDOM -->
+<div class="container mt-4">
     <h2>Personajes random</h2>
     <div class="row row-cols-4 justify-content-center" *ngIf="personajes!=null; else espera">
         <div *ngFor="let personaje of personajes" class="card cartaPersonaje mt-4 mx-3">
@@ -42,5 +46,5 @@
     
 
 <app-pers [personaje]="personaje"></app-pers>
-<app-editar [personaje]="miPersonaje"></app-editar>
+<app-editar [personaje]="miPersonaje" (persEditado)="alEditar($event)"></app-editar>
 <app-crear [abierto]="ventanaCrear" (persCreado)="alCrear($event)"></app-crear>

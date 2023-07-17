@@ -74,6 +74,15 @@ export class ListaPerComponent implements OnInit{
     } 
   };
 
+  alEditar(dato:any){
+    this.miPersonaje = null;
+
+    // Actualiza la lista
+    if(dato==true){
+      this.actualizarLista();  
+    } 
+  }
+
   actualizarLista() {
     this.misPersonajesService.getPersonajes().subscribe(result => this.misPersonajes = result);
   }
