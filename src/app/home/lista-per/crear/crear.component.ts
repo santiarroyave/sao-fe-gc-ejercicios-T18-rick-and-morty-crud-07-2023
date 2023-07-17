@@ -55,6 +55,8 @@ export class CrearComponent{
       },
       error => {
         console.log(error);
+        alert("Parece que no se ha podido contactar con la base de datos");
+        this.persCreado.emit(false);
       }
     );
 
