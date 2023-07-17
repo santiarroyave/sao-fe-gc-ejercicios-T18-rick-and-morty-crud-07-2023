@@ -95,6 +95,17 @@ this.misPersonajesService.create(data)
 );
 ```
 
+## Fotos
+### Mis personajes
+![imagen](https://github.com/santiarroyave/sao-fe-gc-ejercicios-T18-rick-and-morty-crud-07-2023/assets/135848692/46762fd3-d701-46cb-bc17-7bd5916d4c88)
+
+### Ver / Editar
+![imagen](https://github.com/santiarroyave/sao-fe-gc-ejercicios-T18-rick-and-morty-crud-07-2023/assets/135848692/d4e49e38-8192-413c-b046-093a0e172db1)
+
+### Crear personaje
+![imagen](https://github.com/santiarroyave/sao-fe-gc-ejercicios-T18-rick-and-morty-crud-07-2023/assets/135848692/261b9c32-b965-48e5-b621-973b1b786c0f)
+
+
 
 
 ## Readme de Angular
